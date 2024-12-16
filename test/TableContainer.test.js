@@ -36,7 +36,7 @@ describe('TableContainer', () => {
     test('search functionality works', async () => {
         render(<TableContainer data={mockData} head={mockHead} />);
 
-        const searchInput = screen.getByPlaceholderText('Search by Percentage Funded or Amt. Pledged');
+        const searchInput = screen.getByPlaceholderText('Search by Percentage Funded or Amt.');
 
         await act(async () => {
             fireEvent.change(searchInput, { target: { value: '50' } });
