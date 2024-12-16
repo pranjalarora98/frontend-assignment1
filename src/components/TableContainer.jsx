@@ -44,7 +44,6 @@ const TableContainer = ({ data, head, width = 900 }) => {
     };
     const getPageNumbers = () => {
         const pageNumbers = [];
-        const maxVisiblePages = 5;
         let start = Math.max(1, page - 2);
         let end = Math.min(totalPages, page + 2);
         if (start > 1) {
