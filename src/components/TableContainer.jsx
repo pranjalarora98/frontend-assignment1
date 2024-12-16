@@ -75,9 +75,6 @@ const TableContainer = ({ data, head, width = 900 }) => {
     return pageNumbers;
   };
 
-  if (!filteredData.length) {
-    return <p>No data available</p>;
-  }
 
   return (
     <div>
@@ -85,14 +82,14 @@ const TableContainer = ({ data, head, width = 900 }) => {
       <div className="search-container">
         <input
           type="text"
-          placeholder="Search by Percentage Funded or Amt. Pledged"
+          placeholder="Search by Percentage Funded or Amt."
           value={searchQuery}
           onChange={handleSearchChange}
           className="search-box"
         />
       </div>
 
-      <table style={{ width }}>
+     {  !filteredData?.length ? <p>No data available</p> :  <table style={{ width }}>
         <caption>Table displaying data with pagination and rows per page selection</caption>
         <thead>
           <tr>
@@ -160,7 +157,7 @@ const TableContainer = ({ data, head, width = 900 }) => {
             </td>
           </tr>
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 };

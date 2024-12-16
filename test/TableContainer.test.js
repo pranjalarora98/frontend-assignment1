@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/prefer-presence-queries */
 /* eslint-disable testing-library/no-unnecessary-act */
-// TableContainer.test.js
+
 import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import TableContainer from '../src/components/TableContainer';
@@ -49,7 +49,7 @@ describe('TableContainer', () => {
     test('pagination works', async () => {
         render(<TableContainer data={mockData} head={mockHead} />);
 
-        // Initially, it should show the first 5 items
+
         expect(screen.getByText('50%')).toBeInTheDocument();
         expect(screen.getByText('75%')).toBeInTheDocument();
         expect(screen.getByText('25%')).toBeInTheDocument();
@@ -57,24 +57,22 @@ describe('TableContainer', () => {
         expect(screen.getByText('0%')).toBeInTheDocument();
         expect(screen.queryByText('10%')).not.toBeInTheDocument();
 
-        // Click next page
+
         await act(async () => {
             fireEvent.click(screen.getByLabelText('Go to next page'));
         });
 
-        // Now it should show the 6th item
         expect(screen.getByText('10%')).toBeInTheDocument();
     });
 
     test('items per page change works', async () => {
         render(<TableContainer data={mockData} head={mockHead} />);
 
-        // Change items per page to 1
+
         await act(async () => {
             fireEvent.change(screen.getByRole('combobox'), { target: { value: '1' } });
         });
 
-        // Now it should only show the first item
         expect(screen.getByText('50%')).toBeInTheDocument();
         expect(screen.queryByText('75%')).not.toBeInTheDocument();
     });

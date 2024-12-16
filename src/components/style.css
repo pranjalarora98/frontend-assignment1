@@ -1,106 +1,238 @@
+/* General Body Styling */
+body {
+  background: url('https://via.placeholder.com/1600x900') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
-  }
-  
-  caption {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  td {
-    background-color: #fff;
-    color: #555;
-  }
-  
-  td:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .search-container {
-    margin-bottom: 15px;
-  }
-  
-  .search-box {
-    padding: 8px;
-    width: 300px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Pagination Controls Styling */
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Round corners and prevent overflow */
+}
+
+/* Table Header Styling */
+thead {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+th {
+  padding: 12px 15px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  background-color: #007bff;
+  color: white;
+}
+
+td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Row Hover Effect */
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Table Body Scroll */
+tbody {
+  max-height: 400px; /* Allow scrolling when there are many rows */
+  overflow-y: auto;
+  height: 300px;
+}
+
+
+
+caption {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+
+
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search-box {
+  padding: 10px 15px; /* Increased padding for a better touch target */
+  width: 300px;
+  border: 1px solid #007bff; /* Changed border color to match the theme */
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus effect */
+  outline: none; /* Remove default outline */
+}
+
+.search-box:focus {
+  border-color: #0056b3; /* Darker border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow effect on focus */
+}
+
+.search-box::placeholder {
+  color: #aaa; /* Placeholder color */
+  opacity: 1; /* Ensures the placeholder is fully opaque */
+}
+
+/* Pagination Controls Styling */
 .pagination-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for a cleaner look */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Pagination Button Styling */
+.pagination-controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  text-align: center;
+  outline: none;
+}
+
+.pagination-controls button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Disabled Button Styling */
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Page Numbers Styling */
+.page-numbers {
+  display: flex;
+  gap: 10px;
+}
+
+/* Page Number Button Styling */
+.page-numbers button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.page-numbers button.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+.page-numbers button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.page-numbers button:focus {
+  outline: none;
+}
+
+/* Ellipsis Styling */
+.ellipsis {
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.ellipsis:hover {
+  color: #0056b3;
+}
+
+/* Select for Rows per Page */
+.pagination-controls select {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-controls select:hover {
+  background-color: #f1f1f1;
+}
+
+
+.ellipsis {
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.ellipsis:hover {
+  color: #0056b3;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .search-container {
+    flex-direction: column;
     gap: 10px;
   }
-  
-  .pagination-controls button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
+
+  .search-box {
+    width: 100%;
   }
-  
-  .pagination-controls button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+
+  .pagination-controls {
+    flex-direction: column;
+    gap: 10px;
   }
-  
+
   .pagination-controls select {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
+    width: 100%;
   }
-  
-  .page-numbers {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .page-numbers button {
-    background-color: #f1f1f1;
-    color: #333;
-    border: 1px solid #ddd;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .page-numbers button.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .page-numbers button:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .ellipsis {
-    color: #007bff;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
+}
